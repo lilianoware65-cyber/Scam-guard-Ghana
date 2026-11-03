@@ -1,21 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scam Guard Ghana by Dreama</title>
+<style>
+body{background:#121212;color:white;font-family:sans-serif;padding:15px;margin:0}
+.header{background:#1e1e1e;padding:15px;border-radius:15px;display:flex;justify-content:space-between;align-items:center}
+.card{background:#2a2a2a;padding:15px;border-radius:15px;margin-top:20px}
+textarea{width:100%;height:100px;background:#333;color:white;border:none;border-radius:10px;padding:10px;font-size:16px}
+#result{padding:20px;border-radius:15px;margin-top:15px;font-weight:bold;font-size:18px;text-align:center;display:none}
+.btn{background:#22c55e;color:white;border:none;width:100%;padding:18px;border-radius:12px;font-size:20px;font-weight:bold;margin-top:15px}
+</style>
+</head>
+<body>
+<div class="header">
+<div><b>🛡️ Scam Guard Ghana</b><br><small>by Dreama</small></div>
+<div>🇬🇭</div>
+</div>
+
+<div class="card">
+<b>Threat Analysis 🇬🇭</b><br><br>
+<textarea id="msgBox" placeholder="Paste suspicious message here... e.g. You won a lottery ticket send your momo pin"></textarea>
+<div id="result"></div>
+<button class="btn" onclick="checkScam()">Check If Scam</button>
+</div>
+
 <script>
-function checkScam() {
-  let msg = document.getElementById('msgBox').value.toLowerCase();
-  let result = document.getElementById('result');
-  
-  // GHANA SCAM KEYWORDS - Dreama's upgraded list
-  let scams = ["won", "win", "lottery", "send momo", "momo pin", "pin", "ur pin", "your pin", "send your pin", "i have sent", "i have send", "mistakenly sent", "wrong transaction", "send back", "refund", "055", "024", "020", "059", "block your account", "verify your account", "ghs", "ghc"];
-  
-  let isScam = scams.some(word => msg.includes(word));
-  
-  if (isScam) {
-    result.innerHTML = "🚨 SCAM! 99% Fraud! Don't send money or PIN! Delete this message!";
-    result.style.background = "red";
-    result.style.color = "white";
-  } else {
-    result.innerHTML = "✅ Looks SAFE but still be careful.";
-    result.style.background = "#333";
-    result.style.color = "white";
-  }
+function checkScam(){
+ let msg = document.getElementById("msgBox").value.toLowerCase();
+ let result = document.getElementById("result");
+ result.style.display = "block";
+ 
+ let scams = ["momo pin","ur pin","your pin","momo number","otp","send money","lottery","won lottery","won a lottery","you won","congratulations you won","claim your prize","verify your account"];
+
+ let isScam = false;
+ for(let s of scams){
+   if(msg.includes(s)){ isScam = true; break; }
+ }
+
+ if(msg.includes("momo pin") || msg.includes("ur pin") || msg.includes("your pin")){
+   result.innerHTML = "🚨 SCAM! 99% Fraud! NEVER send MoMo PIN! Delete and block!<br><br><small>This is a common scam. Never share your MoMo PIN. Legitimate lotteries never request your PIN.</small>";
+   result.style.background = "#e11d48";
+   result.style.color = "white";
+ } else if(isScam){
+   result.innerHTML = "⚠️ SUSPICIOUS! Be careful ooh! This looks like scam.";
+   result.style.background = "orange";
+   result.style.color = "black";
+ } else {
+   result.innerHTML = "✅ SAFE - Looks okay but still be careful!";
+   result.style.background = "#22c55e";
+   result.style.color = "white";
+ }
 }
 </script>
+</body>
+</html>
