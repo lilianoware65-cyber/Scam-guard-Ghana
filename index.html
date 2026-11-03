@@ -5,13 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scam Guard Ghana by Dreama</title>
 <style>
-body{background:#121212;color:red;font-family:sans-serif;padding:15px;margin:0}
+body{background:#121212;color:white;font-family:sans-serif;padding:15px;margin:0}
 .header{background:#1e1e1e;padding:15px;border-radius:15px;display:flex;justify-content:space-between;align-items:center}
 .card{background:#2a2a2a;padding:15px;border-radius:15px;margin-top:20px}
 textarea{width:100%;height:100px;background:#333;color:white;border:none;border-radius:10px;padding:10px;font-size:16px}
 #result{padding:20px;border-radius:15px;margin-top:15px;font-weight:bold;font-size:18px;text-align:center;display:none}
 .btn{background:#22c55e;color:white;border:none;width:100%;padding:18px;border-radius:12px;font-size:20px;font-weight:bold;margin-top:15px}
+.ad-box{background:#1e1e1e;padding:10px;border-radius:10px;margin-top:20px;text-align:center;border:1px dashed #555}
 </style>
+<!-- Google AdSense - Add your code here after you get approved -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="header">
@@ -21,9 +24,25 @@ textarea{width:100%;height:100px;background:#333;color:white;border:none;border-
 
 <div class="card">
 <b>Threat Analysis 🇬🇭</b><br><br>
-<textarea id="msgBox" placeholder="99% scam be careful message here... e.g. You won a lottery ticket send your momo pin"></textarea>
+<textarea id="msgBox" placeholder="Paste suspicious message here..."></textarea>
 <div id="result"></div>
 <button class="btn" onclick="checkScam()">Check If Scam</button>
+</div>
+
+<div class="ad-box">
+<small>Advertisement - Supports free protection for Ghana</small><br>
+<!-- Ad will show here -->
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-XXXXXXXXXX"
+data-ad-slot="YYYYYYYYYY"
+data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<p style="font-size:12px;color:#888">Free app by Dreama - Ads keep it free 🇬🇭</p>
+</div>
+
+<div style="text-align:center;margin-top:15px;font-size:13px;color:#888">
+Built with ❤️ in Kumasi | Share to protect others
 </div>
 
 <script>
@@ -31,26 +50,18 @@ function checkScam(){
  let msg = document.getElementById("msgBox").value.toLowerCase();
  let result = document.getElementById("result");
  result.style.display = "block";
- 
- let scams = ["momo pin","ur pin","your pin","momo number","otp","send money","lottery","won lottery","won a lottery","you won","congratulations you won","claim your prize","verify your account"];
-
+ let scams = ["momo pin","ur pin","your pin","momo number","otp","send money","lottery","won lottery","won a lottery","you won","claim your prize","verify your account"];
  let isScam = false;
- for(let s of scams){
-   if(msg.includes(s)){ isScam = true; break; }
- }
-
+ for(let s of scams){ if(msg.includes(s)){ isScam = true; break; } }
  if(msg.includes("momo pin") || msg.includes("ur pin") || msg.includes("your pin")){
-   result.innerHTML = "🚨 SCAM! 99% Fraud! NEVER send MoMo PIN! Delete and block!<br><br><small>This is a common scam. Never share your MoMo PIN. Legitimate lotteries never request your PIN.</small>";
-   result.style.background = "#e11d48";
-   result.style.color = "white";
+   result.innerHTML = "🚨 SCAM! 99% Fraud! NEVER send MoMo PIN! Delete and block!";
+   result.style.background = "#e11d48"; result.style.color = "white";
  } else if(isScam){
-   result.innerHTML = "⚠️ SUSPICIOUS! Be careful ooh! This looks like scam.";
-   result.style.background = "orange";
-   result.style.color = "black";
+   result.innerHTML = "⚠️ SUSPICIOUS! Be careful ooh!";
+   result.style.background = "orange"; result.style.color = "black";
  } else {
    result.innerHTML = "✅ SAFE - Looks okay but still be careful!";
-   result.style.background = "#22c55e";
-   result.style.color = "white";
+   result.style.background = "#22c55e"; result.style.color = "white";
  }
 }
 </script>
